@@ -3,7 +3,7 @@ from django.utils import timezone
 
 #모델 정의
 class Post(models.Model): #models.Model: Post(클래스첫자는 대문자)가 장고 모델(=객체)임을 나타낸다. 이 코드 덕에 장고는 Post가 DB에 저장된다 알게 됨.
-    author = models.ForeignKey('auth.User') #다른 모델에 대한 링크
+    author = models.ForeignKey('auth.User',on_delete=models.CASCADE) #다른 모델에 대한 링크
     title = models.CharField(max_length=200) #글자수가 제한된 텍스트
     text = models.TextField() #글자수에 제한 없는 텍스트
     created_date = models.DateTimeField(
